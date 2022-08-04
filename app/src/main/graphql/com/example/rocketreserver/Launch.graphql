@@ -1,0 +1,34 @@
+fragment launchFragment on Launch{
+   id
+  site
+  mission {
+    name
+  }
+}
+
+query LaunchList($cursor: String) {
+  launches(after: $cursor) {
+    hasMore
+    cursor
+    launches {
+     ...launchFragment
+     mission {
+       missionPatch(size: SMALL)
+     }
+    }
+  }
+}
+
+query LaunchDetails($id:ID!) {
+  launch(id: $id) {
+    mission {
+      ...launchFragment
+      missionPatch(size:LARGE)
+    }
+    rocket {
+      name
+      type
+    }
+    isBooked
+  }
+}

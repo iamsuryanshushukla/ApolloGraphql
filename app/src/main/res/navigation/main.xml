@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    app:startDestination="@id/launchListFragment">
+
+    <fragment
+        android:id="@+id/launchListFragment"
+        android:name="com.example.apollo20.LaunchListFragment"
+        android:label="LaunchListFragment" >
+        <action
+            android:id="@+id/action_launchListFragment_to_launchDetailsFragment"
+            app:destination="@id/launchDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/launchDetailsFragment"
+        android:name="com.example.apollo20.LaunchDetailsFragment"
+        android:label="LaunchDetailsFragment" >
+        <argument
+            android:name="launchId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_launchDetailsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.apollo20.LoginFragment"
+        android:label="LoginFragment" />
+</navigation>
